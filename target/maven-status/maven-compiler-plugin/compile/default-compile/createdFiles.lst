@@ -1,0 +1,6 @@
+com\hcl\phase3_1\Controller\UserController.class
+com\hcl\phase3_1\Repo\UserCrudRepository.class
+com\hcl\phase3_1\Services\Services.class
+com\hcl\phase3_1\Repo\UserEntity.class
+com\hcl\phase3_1\App.class
+com\hcl\phase3_1\Services\UserService.class
