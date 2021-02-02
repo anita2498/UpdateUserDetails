@@ -14,8 +14,8 @@ import com.hcl.phase3_1.Repo.UserEntity;
 @Service
 public class UserService implements Services {
 	@Autowired
-	private  UserCrudRepository userCrudRepository;
-	
+	private UserCrudRepository userCrudRepository;
+
 	@Override
 	public UserEntity update(UserEntity user) {
 		// TODO Auto-generated method stub
@@ -27,6 +27,5 @@ public class UserService implements Services {
 		// TODO Auto-generated method stub
 		return userCrudRepository.findById(userid);
 	}
-	
 
 }

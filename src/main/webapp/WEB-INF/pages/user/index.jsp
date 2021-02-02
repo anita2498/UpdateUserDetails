@@ -10,14 +10,15 @@
 
 	<div align="center">
 		<h3>Enter User</h3>
-	     ${msg}
-		<form id="find" action="${pageContext.request.contextPath }/user/find" method="post">
+		${msg}
+		<form id="find" action="${pageContext.request.contextPath }/user/find"
+			method="post">
 			<table cellpadding="2" cellspacing="2">
 				<tr>
 					<td>User-ID</td>
 					<td><input type="text" name="userid"></td>
 				</tr>
-				
+
 
 				<tr>
 					<td>&nbsp;</td>
@@ -26,7 +27,7 @@
 
 			</table>
 		</form>
-		
+
 	</div>
 </body>
 </html>

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.hcl.phase3_1.Repo.UserEntity;
 import com.hcl.phase3_1.Services.Services;
 
-
 @Controller
 @RequestMapping("user")
 public class UserController {
@@ -25,42 +24,41 @@ public class UserController {
 	@Autowired
 	Optional<UserEntity> user;
 	Logger logger = LoggerFactory.getLogger(UserController.class);
+
 	@GetMapping(path = "/")
 	String hello() {
 		logger.info("Mapping to index");
 		return "user/index";
 	}
-	
-	@PostMapping (path="/find")
-	String find(@RequestParam (name="userid") String userid , Model model) {
+
+	@PostMapping(path = "/find")
+	String find(@RequestParam(name = "userid") String userid, Model model) {
 		logger.info("post mapping /find");
 		user = services.findById(userid);
-		if(user.isPresent()) {
-			System.out.println("here"+ user.toString());
+		if (user.isPresent()) {
+			System.out.println("here" + user.toString());
 			model.addAttribute("id", user.get().getId());
 			model.addAttribute("firstName", user.get().getFirstName());
 			model.addAttribute("lastName", user.get().getLastName());
 			model.addAttribute("userid", user.get().getUserid());
 			model.addAttribute("email", user.get().getEmail());
 			return "user/welcome";
-		}else {
+		} else {
 			model.addAttribute("msg", "User not Found");
 			return "user/index";
 
 		}
 	}
-	
-	
+
 	@PostMapping(path = "/update")
 	String update(@ModelAttribute("user") UserEntity user, ModelMap model) {
 		logger.info("in /update");
 		System.out.println("here update" + user.toString());
 		services.update(user);
-		model.addAttribute("msg", "<div style=\"border:1px dotted red;padding:2%;\">" +"User Information Updated");
+		model.addAttribute("msg", "<div style=\"border:1px dotted red;padding:2%;\">" + "User Information Updated");
 
 		return "user/index";
 
 	}
-	
 
 }
